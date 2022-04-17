@@ -1,0 +1,23 @@
+package com.nvkha.pokedex.service.impl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.nvkha.pokedex.model.entity.Pokemon;
+import com.nvkha.pokedex.repository.PokemonRepository;
+import com.nvkha.pokedex.service.PokemonService;
+
+/**
+ *
+ * @author ngua
+ */
+@Service
+public class PokemonServiceImpl implements PokemonService {
+    @Autowired
+    PokemonRepository pokemonRepository;
+
+    @Override
+    public void save(Pokemon pokemon) {
+        pokemonRepository.save(pokemon);
+    }
+}
