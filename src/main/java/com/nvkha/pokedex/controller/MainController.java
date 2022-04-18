@@ -5,10 +5,7 @@ import java.net.MalformedURLException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.nvkha.pokedex.model.entity.Type;
 import com.nvkha.pokedex.service.PokemonService;
@@ -31,5 +28,11 @@ public class MainController {
     public String main(Model model) {
         model.addAttribute("pokemons", pokemonService.getAllPokemon());
         return "home";
+    }
+
+    @GetMapping("/pokemon/{id}")
+    public String pokemon(@PathVariable Long id, Model model) {
+        model.addAttribute("pokemon", pokemonService.getPokemonById(id.longValue()));
+        return "pokemon_detail";
     }
 }

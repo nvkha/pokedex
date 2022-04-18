@@ -12,4 +12,6 @@ public interface PokemonService {
     void save(Pokemon pokemon);
 
     List<Pokemon>  getAllPokemon();
+
+    Pokemon getPokemonById(Long id);
 }
