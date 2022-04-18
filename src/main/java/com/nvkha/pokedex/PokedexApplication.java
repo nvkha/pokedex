@@ -25,8 +25,8 @@ public class PokedexApplication {
     @Bean
     CommandLineRunner commandLineRunner(TypeService typeService, AbilityService abilityService, PokemonService pokemonService) {
         return args -> {
-            PokeAPICaller pokeAPICaller = new PokeAPICaller(typeService, abilityService);
             /*
+            PokeAPICaller pokeAPICaller = new PokeAPICaller(typeService, abilityService);
             for (Type type : pokeAPICaller.getAllType()) {
                 typeService.save(type);
             }

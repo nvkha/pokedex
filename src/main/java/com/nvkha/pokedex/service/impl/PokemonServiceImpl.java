@@ -1,5 +1,7 @@
 package com.nvkha.pokedex.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,5 +21,10 @@ public class PokemonServiceImpl implements PokemonService {
     @Override
     public void save(Pokemon pokemon) {
         pokemonRepository.save(pokemon);
+    }
+
+    @Override
+    public List<Pokemon> getAllPokemon() {
+        return pokemonRepository.findAll();
     }
 }

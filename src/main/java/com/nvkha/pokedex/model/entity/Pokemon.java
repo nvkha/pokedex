@@ -9,7 +9,6 @@ import java.util.Set;
 @Entity
 public class Pokemon {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private Double weight;
@@ -18,7 +17,8 @@ public class Pokemon {
 
     public Pokemon() {}
 
-    public Pokemon(String name, Double weight, Double height) {
+    public Pokemon(Long id, String name, Double weight, Double height) {
+        this.id = id;
         this.name = name;
         this.weight = weight;
         this.height = height;

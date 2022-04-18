@@ -108,7 +108,7 @@ public class PokeAPICaller {
                 }
                 in.close();
                 JSONObject jsonObject = new JSONObject(content.toString());
-                Pokemon pokemon = new Pokemon(jsonObject.getString("name"), jsonObject.getDouble("weight"), jsonObject.getDouble("height"));
+                Pokemon pokemon = new Pokemon((long) i, jsonObject.getString("name"), jsonObject.getDouble("weight"), jsonObject.getDouble("height"));
                 for(int j = 0; j < jsonObject.getJSONArray("types").length(); j++) {
                     pokemon.getTypes().add(typeService.getTypeByName(jsonObject.getJSONArray("types").getJSONObject(j)
                             .getJSONObject("type").getString("name")));

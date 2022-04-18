@@ -16,87 +16,20 @@
 <div class="container">
     <h1 class="mb-4 mt-3" style="text-align: center">Pokedex</h1>
     <div class="row">
-        <div class="col-md-3">
-            <div class="card" style="width: 18rem;">
-                <img src="https://img.pokemondb.net/artwork/sprigatito.jpg" width="300" height="350" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <tr th:each="pokemon : ${pokemons}">
+            <div class="col-md-3 mb-3">
+                <div class="card" style="width: 18rem;">
+                    <a href="#"><img th:src="'https://img.pokemondb.net/artwork/' + ${pokemon.getName()} + '.jpg'"
+                                     width="260"
+                                     height=250 class="card-img-top" alt="..."></a>
+                    <div class="card-body">
+                        <h5 class="card-text" th:text="'#' + ${pokemon.getId()}"></h5>
+                        <h4 class="card-title" th:text="${pokemon.getName()}"></h4>
+                        <p class="card-text" th:text="'Type: ' + ${pokemon.getTypes().get(0).getName()}"></p>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card" style="width: 18rem;">
-                <img src="https://img.pokemondb.net/artwork/sprigatito.jpg" width="300" height="350" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card" style="width: 18rem;">
-                <img src="https://img.pokemondb.net/artwork/sprigatito.jpg" width="300" height="350" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card" style="width: 18rem;">
-                <img src="https://img.pokemondb.net/artwork/sprigatito.jpg" width="300" height="350" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card" style="width: 18rem;">
-                <img src="https://img.pokemondb.net/artwork/sprigatito.jpg" width="300" height="350" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card" style="width: 18rem;">
-                <img src="https://img.pokemondb.net/artwork/sprigatito.jpg" width="300" height="350" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card" style="width: 18rem;">
-                <img src="https://img.pokemondb.net/artwork/sprigatito.jpg" width="300" height="350" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card" style="width: 18rem;">
-                <img src="https://img.pokemondb.net/artwork/sprigatito.jpg" width="300" height="350" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card" style="width: 18rem;">
-                <img src="https://img.pokemondb.net/artwork/sprigatito.jpg" width="300" height="350" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-            </div>
-        </div>
+        </tr>
     </div>
 </div>
 
