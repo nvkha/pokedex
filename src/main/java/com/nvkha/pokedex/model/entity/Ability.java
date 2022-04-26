@@ -1,5 +1,7 @@
 package com.nvkha.pokedex.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;

@@ -1,35 +1,35 @@
-package com.nvkha.pokedex.model.entity;
+package com.nvkha.pokedex.model.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import org.hibernate.annotations.Cascade;
+import com.nvkha.pokedex.model.entity.Ability;
+import com.nvkha.pokedex.model.entity.Type;
 
-import javax.persistence.*;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
-@Entity
-public class Pokemon {
-    @Id
+public class PokemonDto {
     private Long id;
     private String name;
     private Double weight;
     private Double height;
 
-    @ManyToMany
-    @JsonIgnore
-    private List<Type> types = new ArrayList<>();
+    private List<Type> types;
 
-    @ManyToMany
-    @JsonIgnore
-    private List<Ability> abilities = new ArrayList<>();
+    private List<Ability> abilities;
 
-    public Pokemon() {}
+    public PokemonDto() {}
 
-    public Pokemon(Long id, String name, Double weight, Double height) {
+    public PokemonDto(Long id, String name, Double weight, Double height) {
         this.id = id;
+        this.name = name;
+        this.weight = weight;
+        this.height = height;
+    }
+
+    public PokemonDto(String name, Double weight, Double height) {
         this.name = name;
         this.weight = weight;
         this.height = height;

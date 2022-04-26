@@ -1,9 +1,10 @@
 package com.nvkha.pokedex.model.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Type {
@@ -11,6 +12,9 @@ public class Type {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+
+    @ManyToMany(mappedBy = "types", fetch = FetchType.EAGER)
+    private Set<Pokemon> pokemons = new HashSet<>();
 
     public Type() {}
 
@@ -20,6 +24,14 @@ public class Type {
 
     public Long getId() {
         return id;
+    }
+
+    public Set<Pokemon> getPokemons() {
+        return pokemons;
+    }
+
+    public void setPokemons(Set<Pokemon> pokemons) {
+        this.pokemons = pokemons;
     }
 
     public void setId(Long id) {

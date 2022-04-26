@@ -14,4 +14,10 @@ public interface PokemonService {
     List<Pokemon>  getAllPokemon();
 
     Pokemon getPokemonById(Long id);
+
+    Pokemon addPokemon(Pokemon pokemon, List<String> types, List<String> abilities);
+
+    Pokemon deletePokemon(Long id);
+
+    Pokemon updatePokemon(Long id, Pokemon pokemon, List<String> types, List<String> abilities);
 }
